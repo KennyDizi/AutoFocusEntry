@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFAutoFocusEntry.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+    xmlns:local="clr-namespace:XFAutoFocusEntry">
+    <StackLayout
+        Margin="20,10"
+        Spacing="10"
+        VerticalOptions="Start">
+        <Entry x:Name="Entry1" Placeholder="This is Entry 1">
+            <Entry.Behaviors>
+                <behaviors:EventHandlerBehavior EventName="Completed">
+                    <local:EntryAutoFocusAction TargetObject="{x:Reference Entry2}" />
+                </behaviors:EventHandlerBehavior>
+            </Entry.Behaviors>
+        </Entry>
+
+        <Entry x:Name="Entry2" Placeholder="Entry2" />
+    </StackLayout>
+</ContentPage>
